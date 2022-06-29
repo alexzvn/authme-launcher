@@ -1,6 +1,12 @@
-name: Plugin
-main: dev.alexzvn.plugin.Plugin
+author: Alexzvn
+name: AuthmeLauncher
+main: dev.alexzvn.authentication.AuthmeLauncher
+descriptions: A none
+website: github.com/alexzvn
+api-version: 1.16
 
 author: Alexzvn
-descriptions: A simple plugin
+descriptions: Extension allow auto authenticate between Minecraft server and custom launcher
 version: 0.0.1
+
+depend: [AuthMeReloaded]
