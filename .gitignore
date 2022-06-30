@@ -2,3 +2,5 @@ target
 .vscode
 .classpath
 .settings
+spigot
+node

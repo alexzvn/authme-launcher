@@ -27,16 +27,6 @@
             </goals>
             <configuration>
               <finalName>${project.name}-v${project.version}</finalName>
-              <relocations>
-                <relocation>
-                  <pattern>io.socket</pattern>
-                  <shadedPattern>io.socket</shadedPattern>
-                </relocation>
-                <relocation>
-                  <pattern>org.apache.httpcomponents</pattern>
-                  <shadedPattern>org.apache.httpcomponents</shadedPattern>
-                </relocation>
-              </relocations>
               <transformers>
                 <transformer>
                   <mainClass>dev.alexzvn.authentication.AuthmeLauncher</mainClass>

@@ -9,4 +9,4 @@ author: Alexzvn
 descriptions: Extension allow auto authenticate between Minecraft server and custom launcher
 version: 0.0.1
 
-depend: [AuthMeReloaded]
+depend: [AuthMe]
