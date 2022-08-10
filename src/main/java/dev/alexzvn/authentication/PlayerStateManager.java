@@ -46,6 +46,18 @@ public class PlayerStateManager implements Listener {
         return authenticate(Bukkit.getServer().getPlayer(username), password, challange);
     }
 
+    public boolean isRegistered(String username) {
+        return AuthMeApi.getInstance().isRegistered(username);
+    }
+
+    public boolean register(String username, String password) {
+        if (isRegistered(username)) {
+            return false;
+        }
+
+        return AuthMeApi.getInstance().registerPlayer(username, password);
+    }
+
     public boolean authenticate(Player player, String password, String challange) {
         AuthMeApi api = AuthMeApi.getInstance();
         String username = player.getName();
@@ -64,8 +76,8 @@ public class PlayerStateManager implements Listener {
             return false;
         }
 
-        if (api.isRegistered(username) == false) {
-            api.registerPlayer(username, password);
+        if (! api.isRegistered(username)) {
+            return false;
         }
 
         if (! api.checkPassword(username, password)) {

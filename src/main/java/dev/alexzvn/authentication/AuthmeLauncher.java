@@ -10,6 +10,7 @@ import com.corundumstudio.socketio.listener.DataListener;
 
 import dev.alexzvn.authentication.data.AuthCheck;
 import dev.alexzvn.authentication.data.Authenticate;
+import dev.alexzvn.authentication.data.RegisterData;
 
 public class AuthmeLauncher extends JavaPlugin {
 
@@ -52,6 +53,21 @@ public class AuthmeLauncher extends JavaPlugin {
                 boolean authenticated = manager.check(data.getUsername(), data.getPassword());
 
                 client.sendEvent("auth:check", authenticated);
+            }
+        });
+
+        server.addEventListener("auth:register", RegisterData.class, new DataListener<RegisterData>() {
+            
+            @Override
+            public void onData(SocketIOClient client, RegisterData data, AckRequest ackSender) throws Exception {
+                if (! data.isValid()) {
+                    client.sendEvent("auth:register", false);
+                    return;
+                }
+
+                boolean registered = manager.register(data.getUsername(), data.getPassword());
+
+                client.sendEvent("auth:register", registered);
             }
         });
 
