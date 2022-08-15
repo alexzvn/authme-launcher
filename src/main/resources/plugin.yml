@@ -7,6 +7,6 @@ api-version: 1.16
 
 author: Alexzvn
 descriptions: Extension allow auto authenticate between Minecraft server and custom launcher
-version: 0.0.1
+version: 0.0.2
 
 depend: [AuthMe]
