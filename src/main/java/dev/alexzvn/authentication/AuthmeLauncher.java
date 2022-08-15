@@ -60,12 +60,7 @@ public class AuthmeLauncher extends JavaPlugin {
             
             @Override
             public void onData(SocketIOClient client, RegisterData data, AckRequest ackSender) throws Exception {
-                if (! data.isValid()) {
-                    client.sendEvent("auth:register", false);
-                    return;
-                }
-
-                boolean registered = manager.register(data.getUsername(), data.getPassword());
+                boolean registered = data.isValid() && manager.register(data.getUsername(), data.getPassword());
 
                 client.sendEvent("auth:register", registered);
             }

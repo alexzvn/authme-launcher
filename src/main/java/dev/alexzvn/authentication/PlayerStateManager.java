@@ -90,11 +90,9 @@ public class PlayerStateManager implements Listener {
     }
 
     /**
-     * If player doesn't has account in AuthMe, they will be registered, so return true!
+     * If player doesn't has account in AuthMe return false, true otherwise!
      */
     public boolean check(String username, String password) {
-        AuthMeApi api = AuthMeApi.getInstance();
-
-        return api.isRegistered(username) == false || api.checkPassword(username, password);
+        return isRegistered(username) || AuthMeApi.getInstance().checkPassword(username, password);
     }
 }

@@ -40,7 +40,7 @@ public class RegisterData {
   }
 
   public boolean isValid() {
-    return email != null && username != null && password != null && email.length() > 0 && username.length() > 0 && password.length() > 0;
+    return username != null && password != null && username.length() > 0 && password.length() > 0;
   }
 
   @Override
