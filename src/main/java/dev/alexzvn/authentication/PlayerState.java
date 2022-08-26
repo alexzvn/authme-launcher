@@ -5,19 +5,19 @@ import org.bukkit.entity.Player;
 import fr.xephi.authme.api.v3.AuthMeApi;
 
 public class PlayerState {
-    public String challange;
+    public String challenge;
     public Boolean isAuthenticated = false;
 
-    public PlayerState(String challange) {
-        this.challange = challange;
+    public PlayerState(String challenge) {
+        this.challenge = challenge;
     }
 
     public PlayerState() {
-        challange = random(10);
+        challenge = random(10);
     }
 
-    public void regenerateChallange() {
-        this.challange = random(10);
+    public void regenerateChallenge() {
+        this.challenge = random(10);
     }
 
     private String random(int length) {

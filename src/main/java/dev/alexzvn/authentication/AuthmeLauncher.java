@@ -35,7 +35,7 @@ public class AuthmeLauncher extends JavaPlugin {
                     return;
                 }
 
-                boolean authenticated = manager.authenticate(data.getUsername(), data.getPassword(), data.getChallange());
+                boolean authenticated = manager.authenticate(data.getUsername(), data.getPassword(), data.getChallenge());
 
                 client.sendEvent("authenticate", authenticated);
             }

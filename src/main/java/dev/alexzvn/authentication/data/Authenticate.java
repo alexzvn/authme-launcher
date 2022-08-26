@@ -5,15 +5,15 @@ public class Authenticate {
 
     private String username;
     private String password;
-    private String challange;
+    private String challenge;
 
     public Authenticate() {}
 
-    public Authenticate(String username, String password, String challange) {
+    public Authenticate(String username, String password, String challenge) {
         super();
         this.username = username;
         this.password = password;
-        this.challange = challange;
+        this.challenge = challenge;
     }
 
     public String getUsername() {
@@ -24,8 +24,8 @@ public class Authenticate {
         return password;
     }
 
-    public String getChallange() {
-        return challange;
+    public String getChallenge() {
+        return challenge;
     }
 
     public void setUsername(String username) {
@@ -36,17 +36,17 @@ public class Authenticate {
         this.password = password;
     }
 
-    public void setChallange(String challange) {
-        this.challange = challange;
+    public void setChallenge(String challenge) {
+        this.challenge = challenge;
     }
 
     public boolean isValid() {
 
         return username != null
             && password != null
-            && challange != null
+            && challenge != null
             && username.length() > 0
             && password.length() > 0
-            && challange.length() > 0;
+            && challenge.length() > 0;
     }
 }

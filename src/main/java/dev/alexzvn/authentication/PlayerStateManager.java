@@ -26,7 +26,7 @@ public class PlayerStateManager implements Listener {
 
         states.put(e.getPlayer().getName(), state);
 
-        e.getPlayer().sendMessage("Automatic login challange: __(" + state.challange + ")");
+        e.getPlayer().sendMessage("Automatic login challange: __(" + state.challenge + ")");
     }
 
     @EventHandler
@@ -42,8 +42,8 @@ public class PlayerStateManager implements Listener {
         return states.get(username).isAuthenticated;
     }
 
-    public boolean authenticate(String username, String password, String challange) {
-        return authenticate(Bukkit.getServer().getPlayer(username), password, challange);
+    public boolean authenticate(String username, String password, String challenge) {
+        return authenticate(Bukkit.getServer().getPlayer(username), password, challenge);
     }
 
     public boolean isRegistered(String username) {
@@ -58,7 +58,7 @@ public class PlayerStateManager implements Listener {
         return AuthMeApi.getInstance().registerPlayer(username, password);
     }
 
-    public boolean authenticate(Player player, String password, String challange) {
+    public boolean authenticate(Player player, String password, String challenge) {
         AuthMeApi api = AuthMeApi.getInstance();
         String username = player.getName();
 
@@ -72,7 +72,7 @@ public class PlayerStateManager implements Listener {
             return true;
         }
 
-        if (! state.challange.equals(challange)) {
+        if (! state.challenge.equals(challenge)) {
             return false;
         }
 
@@ -89,10 +89,7 @@ public class PlayerStateManager implements Listener {
         return state.isAuthenticated = true;
     }
 
-    /**
-     * If player doesn't has account in AuthMe return false, true otherwise!
-     */
     public boolean check(String username, String password) {
-        return isRegistered(username) || AuthMeApi.getInstance().checkPassword(username, password);
+        return isRegistered(username) && AuthMeApi.getInstance().checkPassword(username, password);
     }
 }
